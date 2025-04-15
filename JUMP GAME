@@ -1,0 +1,14 @@
+class Solution {
+    public boolean canJump(int[] nums) {
+        int reachable = 0;
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (i > reachable) {
+                return false; // If the current index is beyond the farthest reachable point
+            }
+            reachable = Math.max(reachable, i + nums[i]); // Update the farthest reachable index
+        }
+        
+        return true; // If we traverse the array without encountering an unreachable index
+    }
+}
