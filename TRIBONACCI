@@ -1,0 +1,26 @@
+class Solution {
+    public int tribonacci(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        
+        // Variables to store the last three Tribonacci numbers
+        int t0 = 0, t1 = 1, t2 = 1;
+        
+        // Variable to hold the current Tribonacci number
+        int tn = 0;
+        
+        // Iterate to calculate up to T(n)
+        for (int i = 3; i <= n; i++) {
+            tn = t0 + t1 + t2;
+            t0 = t1; // Shift t0 to t1
+            t1 = t2; // Shift t1 to t2
+            t2 = tn; // Shift tn to t2
+        }
+        
+        return tn;
+    }
+}
